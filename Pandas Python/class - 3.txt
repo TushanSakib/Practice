@@ -1,0 +1,10 @@
+
+# rewrite header
+import pandas as pd
+df = pd.read_csv("Weather.csv",header = None,names=["Days","Temp","Wind","Eve"])
+df
+
+# nrows argument
+import pandas as pd
+df = pd.read_csv("Weather.csv",header = None,nrows = 3)
+df

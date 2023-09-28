@@ -1,0 +1,17 @@
+# importing pandas module
+import pandas as pd
+
+# making data frame
+data = pd.read_csv("https://media.geeksforgeeks.org/wp-content/uploads/nba.csv")
+print(data)
+print(data['Salary'].max())
+print("\nName who's salary is above 20000\n")
+
+index_ = data['Salary']
+data.index = index_
+
+print(data['Name'][data['Salary']>20000])
+
+
+
+

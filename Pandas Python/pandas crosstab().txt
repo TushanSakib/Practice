@@ -1,0 +1,7 @@
+import pandas as pd
+df = pd.read_csv("C:\\Users\\ASUS\\Desktop\\weather_by_cities.csv")
+df
+
+pd.crosstab([df.city,df.day],df.event,margins=True)
+
+pd.crosstab([df.city],[df.event],normalize='index')

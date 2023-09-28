@@ -1,0 +1,7 @@
+import numpy as np
+import pandas as pd
+df = pd.read_csv("C:\\Users\\ASUS\\PycharmProjects\\sakibproject\\Weather.csv")
+df
+
+new_df = df.replace([-9999,-99999],np.NaN)
+new_df

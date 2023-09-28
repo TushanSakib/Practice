@@ -1,0 +1,77 @@
+*** Kivy Python File****
+
+import kivy
+from kivy.app import App
+from kivy.uix.label import Label
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
+from kivy.uix.widget import Widget
+from kivy.properties import ObjectProperty
+class MyGridLayOut(Widget):
+    name = ObjectProperty(None)
+    favourite = ObjectProperty(None)
+    color = ObjectProperty(None)
+
+    def press(self):
+        name = self.name.text
+        favourite = self.favourite.text
+        color = self.color.text
+
+        print(f'Hello {name}, your {favourite} is your favourite food,and your favourite color is {color}')
+        #self.add_widget(Label(text = f'Hello {name}, {favourite} is your favourite food,and your favourite color is {color}'))
+        #Clear text box
+        self.name.text = ""
+        self.favourite.text = ""
+        self.color.text = ""
+
+
+
+class MyApp(App):
+    def build(self):
+        return MyGridLayOut()
+
+if __name__ == '__main__':
+    MyApp().run()
+
+
+
+****my.kv file design****
+
+<MyGridLayOut>
+    name:name
+    favourite:favourite
+    color:color
+    GridLayout:
+        cols:1
+        size: root.width,root.height
+
+        GridLayout:
+            cols:2
+
+            Label:
+                text: "Name"
+            TextInput:
+                id:name
+                multiline:False
+
+            Label:
+                text: "Favourite"
+            TextInput:
+                id:favourite
+                multiline:False
+
+            Label:
+                text: "Color"
+            TextInput:
+                id:color
+                multiline:False
+
+        Button:
+            text: "Submit"
+            font_size:32
+            on_press: root.press()
+
+
+
+

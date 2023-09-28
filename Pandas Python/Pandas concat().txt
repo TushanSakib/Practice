@@ -1,0 +1,71 @@
+
+# creating dataframe
+import pandas as pd
+india_weather = pd.DataFrame({
+    'city':["mumbai","dehli","bangalore"],
+    'temperature':[22,32,30],
+    'humidity':[34,60,70]
+})
+india_weather
+
+# Creating dataframe
+
+us_weather = pd.DataFrame({
+    'city':["new york","california","chikago"],
+    'temperature':[32,30,34],
+    'humidity':[50,80,90]
+})
+us_weather
+
+# Concat() two dataframe by indexing
+
+df = pd.concat([india_weather,us_weather],ignore_index = True)
+df
+
+# Concat() by keys
+
+df = pd.concat([india_weather,us_weather],keys=["india","us"])
+df
+
+# Creating dataframe
+
+temperature_df =pd.DataFrame({
+    'city':["mumbai","dehli","bangalore"],
+    'temperature':[22,32,30]
+},index=[0,1,2])
+temperature_df
+
+# Creating dataframe
+
+windspeed_df = pd.DataFrame({
+    'city':["dehli","mumbai","bangalore"],
+    'windspeed':[6,7,9]
+},index=[1,0,2])
+windspeed_df
+
+# Concat() dataframe by axis
+
+df = pd.concat([temperature_df,windspeed_df],axis = 1)
+df
+
+
+temperature_df
+
+# Series applying
+s = pd.Series(["Humid","Dry","Rain"],name="event")
+s
+
+df = pd.concat([temperature_df,s],axis=1)
+df
+
+
+
+
+
+
+
+
+
+
+
+

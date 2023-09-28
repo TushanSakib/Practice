@@ -1,0 +1,33 @@
+import pandas as pd
+import sqlalchemy
+import pymysql
+import mysql
+
+engine = sqlalchemy.create_engine('mysql+pymysql://root:azizsakib@localhost:3306/sakib')
+
+df = pd.read_sql_table("orders",engine,columns=['name','amount'])
+df
+
+
+query='''SELECT sakib.customers.name,sakib.customers.phone_number,sakib.orders.name,sakib.orders.amount
+FROM sakib.customers INNER JOIN sakib.orders
+ON sakib.customers.id=sakib.orders.customer_id'''
+df = pd.read_sql_query(query,engine)
+df
+
+
+df.rename(columns={
+    'Customer_name':'name',
+    'Customer phone':'phone_number'
+},inplace=True)
+df
+
+df.to_sql(
+    name='customers',
+    con=engine,
+    index=False,
+    if_exists='append'
+)
+
+
+.read_sql_table("customers",engine)

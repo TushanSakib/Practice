@@ -1,0 +1,40 @@
+# importing pandas module
+import pandas as pd
+
+# making data frame
+data = pd.read_csv("https://media.geeksforgeeks.org/wp-content/uploads/nba.csv")
+# Print the whole data
+print(data)
+
+# Print the rows and column
+rows,column = data.shape
+print(rows)
+print(column)
+
+# print first rows
+print(data.head(2))
+
+# Print last rows
+print(data.tail(2))
+
+# Print the columns name
+print(data.columns)
+
+# Printing Individual columns
+print(data.Name)
+
+# Print the type
+print(type(data['Name']))
+
+# Print maximum
+print(data['Salary'].max())
+
+# Print Minimum
+print(data['Salary'].min())
+
+print(data.describe())
+
+
+
+
+

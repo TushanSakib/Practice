@@ -1,0 +1,36 @@
+import pandas as pd
+df1_weather = pd.DataFrame({
+    'city':["new york","california","chikago","baltimore"],
+    'temperature':[22,32,30,31],
+    'humidity':[34,60,70,40]
+})
+df1_weather
+
+
+df2_weather = pd.DataFrame({
+    'city':["new york","california","chikago","san francisco"],
+    'temperature':[32,30,34,40],
+    'humidity':[50,80,90,40]
+})
+df2_weather
+
+df3 = pd.merge(df1_weather,df2_weather,on="city")
+df3
+
+df3 = pd.merge(df1_weather,df2_weather,on="city",how = "outer")
+df3
+
+df3 = pd.merge(df1_weather,df2_weather,on="city",how = "inner")
+df3
+
+df3 = pd.merge(df1_weather,df2_weather,on="city",how = "left")
+df3
+
+df3 = pd.merge(df1_weather,df2_weather,on="city",how = "right")
+df3
+
+df3 = pd.merge(df1_weather,df2_weather,on="city",how = "outer",indicator = True)
+df3
+
+df3 = pd.merge(df1_weather,df2_weather,on="city",suffixes=("_left","_right"))
+df3

@@ -1,0 +1,18 @@
+import pandas as pd
+df = pd.read_csv("C:\\Users\\ASUS\\Desktop\\weather_by_cities.csv")
+df
+
+df.pivot(index="day",columns="city")
+
+
+df.pivot(index="day",columns="city",values="event")
+
+table=pd.pivot_table(df,index="city",columns="day",aggfunc="sum")
+table
+
+
+table=pd.pivot_table(df,index="city",columns="day",aggfunc="sum",margins=True)
+table
+
+df["day"]=pd.to_datetime(df["day"])
+df.pivot_table(index=pd.Grouper(freq="M",key="day"),columns="city",aggfunc="sum")
