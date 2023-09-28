@@ -1,0 +1,19 @@
+total_vertex = int(input("Enter the number of vertex: "))
+graph = {}
+flag = True
+for i in range(total_vertex):
+    vertex = input("Enter vertex: ")
+    graph[vertex] = list()
+
+    while flag:
+        child = input(f'Enter chile of {vertex} (-1 for exit): ')
+        if child != '-1':
+            graph[vertex].append(child)
+        else:
+            flag = False
+    flag = True
+
+print(graph)
+
+
+

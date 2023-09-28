@@ -1,0 +1,13 @@
+color_list = ["Red","Green","White","Black"]
+
+for i in range(color_list.__len__()):
+    if color_list[i]==color_list[0]:
+        print(color_list[i])
+
+for i,element in enumerate(color_list):
+    if(i==len(color_list)-1):
+        print(element)
+
+for i in range(color_list.__len__()):
+    if(i==len(color_list)-1):
+        print(color_list[i])
