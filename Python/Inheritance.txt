@@ -1,0 +1,33 @@
+class Person(object):
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+
+    def display(self):
+        print(self.name,self.age)
+
+class Teacher(Person):
+    def __init__(self,id,address):
+        self.id = id
+        self.address = address
+
+        super().__init__("Rahul",23)
+    def display(self):
+        super().display()
+        print(self.id,self.address)
+
+class Student(Teacher):
+    def __init__(self,sname,sage,sid):
+        self.sname = sname
+        self.sage = sage
+        self.sid = sid
+
+        super().__init__(102,"Dhaka-mirpur")
+
+    def display(self):
+        super().display()
+        print(self.sname,self.sage,self.sid)
+
+
+obj = Student("Sakib",20,2006)
+obj.display()
